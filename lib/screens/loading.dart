@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:helloworld/data/my_location.dart';
 import 'package:helloworld/data/network.dart';
 import 'package:helloworld/screens/weather_screen.dart';
@@ -50,45 +51,15 @@ class _LoadingState extends State<Loading> {
                 parseWeatherData: weatherData, parseAirPollution: airData)));
   }
 
-  // Route _newScreen() {
-  //   return PageRouteBuilder(pageBuilder: (context) => WeatherScreen());
-
-  // void fetchData() async{
-  //
-  //     var myJson = parsingData['weather'][0]['description'];
-  //     print(myJson);
-  //
-  //     var wind = parsingData['wind']['speed'];
-  //     print(wind);
-  //
-  //     var id =parsingData['id'];
-  //     print(id);
-  //   }else{
-  //     print(response.statusCode);
-  //   }
-  // }
-  //
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: TextButton(
-            style: TextButton.styleFrom(
-              // primary: Colors.red,
-              backgroundColor: Colors.blue,
-            ),
-            child: Text(
-              'Weather APP Start Button',
-              style: TextStyle(color: Colors.white),
-            ),
-            onPressed: () {}
-            //   Navigator.of(context).push(MaterialPageRoute(
-            //     builder: (BuildContext context) => WeatherScreen(),
-            //   ));
-            // }
-            ),
-      ),
-    );
+        backgroundColor: Colors.amber,
+        body: Center(
+          child: SpinKitDoubleBounce(
+            color: Colors.white,
+            size: 80.0,
+          ),
+        ));
   }
 }
